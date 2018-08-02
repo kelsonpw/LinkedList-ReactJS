@@ -48,7 +48,7 @@ export default class Homepage extends Component {
         <Header />
         <div className="feed">
           <h2>
-            <i class="fas fa-clipboard-list" /> Jobs
+            <i className="fas fa-clipboard-list" /> Jobs
           </h2>
           <div className="cards">{displayJobs}</div>
         </div>

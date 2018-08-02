@@ -1,5 +1,10 @@
 import { callAPI } from '../../../services/api';
-import { setToken, clearToken, getToken } from '../../../services/token';
+import {
+  setToken,
+  clearToken,
+  getToken,
+  setUser
+} from '../../../services/token';
 import jwtDecode from 'jwt-decode';
 import * as t from '../actionTypes';
 
@@ -13,7 +18,7 @@ export function authRequest(type, usernameOrHandle, password) {
           username: usernameOrHandle,
           password
         });
-        dispatch(authSuccess('user', token));
+        dispatch(authSuccess('user', token, usernameOrHandle));
       } catch (error) {
         dispatch(authFail('user', error));
         return Promise.reject();
@@ -24,8 +29,9 @@ export function authRequest(type, usernameOrHandle, password) {
   };
 }
 
-export function authSuccess(type, token) {
+export function authSuccess(type, token, user) {
   setToken(token);
+  setUser(user);
   if (type === 'user') {
     return { type: t.USER_AUTH_SUCCESS };
   } else {
