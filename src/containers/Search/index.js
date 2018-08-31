@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Search from '../../components/Search';
-import { fetchJobsRequest, createJobApp } from '../../store/actions/jobs';
+import { createJobApp } from '../../store/actions/jobs';
 import { fetchCompanyRequest } from '../../store/actions/companies';
 import { fetchCurrentUser } from '../../store/actions/currentUser';
 import { fetchJobsSearch } from '../../store/actions/search';
